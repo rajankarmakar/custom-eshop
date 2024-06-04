@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="tab-content">
+    <div class="home-slider owl-carousel owl-theme">
+      {% for block in section.blocks %}
+        <div class="item slider-item-container">
+          <a href="#">
+            <img src="{{ block.settings.slide_image | image_url }}" width="auto" height="auto" alt="img">
+          </a>
+
+          <div class="image_overlay">
+            {% if block.settings.title != blank %}
+              <h4>{{ block.settings.title }}</h4>
+            {% endif %}
+            {% if block.settings.description != blank %}
+              <p>{{ block.settings.description }}</p>
+            {% endif %}
+            {% if block.settings.button_label != blank %}
+              <a href="{{ block.settings.button_link }}" class="slider_action_button">
+                {{- block.settings.button_label -}}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .slider-item-container {
+    position: relative;
+  }
+
+  .image_overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(256, 256, 256, 0.7);
+    padding: 1rem 2rem;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Image Slider",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "Show navigation arrow",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Slide",
+      "name": "slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slide_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Example title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Example description"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "See more"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

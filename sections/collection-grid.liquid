@@ -1,0 +1,125 @@
+<div class="featured-category">
+  <div class="container">
+    <div class="tab-content text-center">
+      <div class="title-product pt-4">
+        {% if section.settings.section_title != blank %}
+          <h2 class="text-center">{{ section.settings.section_title }}</h2>
+        {% endif %}
+        {% if section.settings.section_description != blank %}
+          <p>{{ section.settings.section_description }}</p>
+        {% endif %}
+        <div class="featured">
+          {% for block in section.blocks %}
+            <div class="content-category">
+              <div class="content-img">
+                <a href="product-grid-sidebar-left.html">
+                  {% if block.settings.collection.image %}
+                    <img
+                      src="{{ block.settings.collection.image.src | img_url }}"
+                      alt="{{ block.settings.collection.title }}"
+                      class="img-fluid"
+                      width="200"
+                      height="200"
+                    >
+                  {% else %}
+                    <img
+                      src="{{ block.settings.collection.products.first.featured_image.src | img_url }}"
+                      alt="{{ block.settings.collection.title }}"
+                      class="img-fluid"
+                      width="200"
+                      height="200"
+                    >
+                  {% endif %}
+                </a>
+              </div>
+              <div class="info-category">
+                <h3>
+                  <a href="{{block.settings.collection.url }}">{{ block.settings.title }}</a>
+                </h3>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .featured {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .content-category {
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .content-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .info-category {
+    margin-top: auto;
+    text-align: center;
+  }
+
+  .info-category h3 a {
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Collection List",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section title",
+      "default": "Collection list"
+    },
+    {
+      "type": "textarea",
+      "id": "section_description",
+      "label": "Section description",
+      "default": "LOREM IPSUM DOLOR SIT AMET CONSECTETUR"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_item",
+      "name": "Collection Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Collection title"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
