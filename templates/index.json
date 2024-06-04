@@ -45,6 +45,50 @@
     },
     "collection-grid": {
       "type": "collection-grid",
+      "blocks": {
+        "collection_item_A4A9FD": {
+          "type": "collection_item",
+          "settings": {
+            "title": "Phone",
+            "collection": "mobile"
+          }
+        },
+        "collection_item_HWLhwa": {
+          "type": "collection_item",
+          "settings": {
+            "title": "Headphone",
+            "collection": "headphone"
+          }
+        },
+        "collection_item_yB79Hb": {
+          "type": "collection_item",
+          "settings": {
+            "title": "Laptop",
+            "collection": "laptop"
+          }
+        },
+        "collection_item_8hN9WA": {
+          "type": "collection_item",
+          "settings": {
+            "title": "Phone cover",
+            "collection": "phone-cover"
+          }
+        },
+        "collection_item_NFhVKp": {
+          "type": "collection_item",
+          "settings": {
+            "title": "Tablet",
+            "collection": "tablet"
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_A4A9FD",
+        "collection_item_HWLhwa",
+        "collection_item_yB79Hb",
+        "collection_item_8hN9WA",
+        "collection_item_NFhVKp"
+      ],
       "settings": {
         "section_title": "Collection list",
         "section_description": "LOREM IPSUM DOLOR SIT AMET CONSECTETUR"
