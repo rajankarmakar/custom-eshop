@@ -2,12 +2,46 @@
   "sections": {
     "image-slider": {
       "type": "image-slider",
-      "settings": {}
+      "blocks": {
+        "slide_gUJCRA": {
+          "type": "Slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/istockphoto-1431021822-1024x1024.jpg",
+            "title": "Example title",
+            "description": "Example description",
+            "button_label": "See more",
+            "button_link": "#"
+          }
+        },
+        "slide_ggpg7J": {
+          "type": "Slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/pexels-katieburandt-1212693.jpg",
+            "title": "Example title 2",
+            "description": "Example description 2",
+            "button_label": "See more",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "slide_gUJCRA",
+        "slide_ggpg7J"
+      ],
+      "settings": {
+        "show_arrow": true
+      }
     },
     "collection-grid": {
       "type": "collection-grid",
-      "settings": {}
+      "settings": {
+        "section_title": "Collection list",
+        "section_description": "LOREM IPSUM DOLOR SIT AMET CONSECTETUR"
+      }
     }
   },
-  "order": ["image-slider", "collection-grid"]
+  "order": [
+    "image-slider",
+    "collection-grid"
+  ]
 }
