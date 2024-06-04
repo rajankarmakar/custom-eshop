@@ -22,11 +22,22 @@
             "button_label": "See more",
             "button_link": "#"
           }
+        },
+        "slide_xxddXa": {
+          "type": "Slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/kal-visuals-aK4iPNYipnU-unsplash.jpg",
+            "title": "Example title 3",
+            "description": "Example description 3",
+            "button_label": "See more",
+            "button_link": "#"
+          }
         }
       },
       "block_order": [
         "slide_gUJCRA",
-        "slide_ggpg7J"
+        "slide_ggpg7J",
+        "slide_xxddXa"
       ],
       "settings": {
         "show_arrow": true
