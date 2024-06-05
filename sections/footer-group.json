@@ -5,9 +5,35 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "brand_info_qwnX4D": {
+          "type": "brand_info",
+          "settings": {
+            "heading": "Custom eshop",
+            "tagline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, erat non malesuada consequat, nibh erat tempus risus, vitae porttitor purus nisl vitae purus."
+          }
+        },
+        "contact_info_mwkVTn": {
+          "type": "contact_info",
+          "settings": {
+            "section_title": "Get In Touch",
+            "address": "123 Street, New York, USA",
+            "phone": "+012 345 67890",
+            "twitter_link": "https:.\/\/twitter.com\/custom-eshop",
+            "facebook_link": "https:.\/\/facebook.com\/custom-eshop",
+            "instagram_link": "https:.\/\/instagram.com\/custom-eshop",
+            "linkedin_link": "https:.\/\/linkedin.com\/custom-eshop"
+          }
+        }
       },
-      "block_order": []
+      "block_order": [
+        "brand_info_qwnX4D",
+        "contact_info_mwkVTn"
+      ],
+      "settings": {
+      }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }
