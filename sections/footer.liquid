@@ -1,49 +1,86 @@
 <div class="container-fluid bg-white footer">
   <div class="container py-5">
     <div class="row g-5">
-      <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
-        <a href="index.html" class="d-inline-block mb-3">
-          <h1 class="text-primary">Hairnic</h1>
-        </a>
-        <p class="mb-0">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, erat non malesuada consequat, nibh erat
-          tempus risus, vitae porttitor purus nisl vitae purus.
-        </p>
-      </div>
-      <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
-        <h5 class="mb-4">Get In Touch</h5>
-        <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-        <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-        <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
-        <div class="d-flex pt-2">
-          <a class="btn btn-square btn-outline-primary me-1" href="#"><i class="fab fa-twitter"></i></a>
-          <a class="btn btn-square btn-outline-primary me-1" href="#"><i class="fab fa-facebook-f"></i></a>
-          <a class="btn btn-square btn-outline-primary me-1" href="#"><i class="fab fa-instagram"></i></a>
-          <a class="btn btn-square btn-outline-primary me-1" href="#"
-            ><i
-              class="fab fa-linkedin-in"
-            ></i
-          ></a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-        <h5 class="mb-4">Our Products</h5>
-        <a class="btn btn-link" href="#">Hair Shining Shampoo</a>
-        <a class="btn btn-link" href="#">Anti-dandruff Shampoo</a>
-        <a class="btn btn-link" href="#">Anti Hair Fall Shampoo</a>
-        <a class="btn btn-link" href="#">Hair Growing Shampoo</a>
-        <a class="btn btn-link" href="#">Anti smell Shampoo</a>
-      </div>
-      <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
-        <h5 class="mb-4">Popular Link</h5>
-        <a class="btn btn-link" href="#">About Us</a>
-        <a class="btn btn-link" href="#">Contact Us</a>
-        <a class="btn btn-link" href="#">Privacy Policy</a>
-        <a class="btn btn-link" href="#">Terms & Condition</a>
-        <a class="btn btn-link" href="#">Career</a>
-      </div>
+      {% for block in section.blocks %}
+        {%- case block.type -%}
+          {%- when 'brand_info' -%}
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+              <a href="{{ shop.url }}" class="d-inline-block mb-3">
+                <h1 class="text-primary">{{ block.settings.heading }}</h1>
+              </a>
+              <p class="mb-0">
+                {{ block.settings.tagline }}
+              </p>
+            </div>
+          {%- when 'contact_info' -%}
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+              {% if block.settings.section_title != blank %}
+                <h5 class="mb-4">{{ block.settings.section_title }}</h5>
+              {% endif %}
+              {% if block.settings.address != blank %}
+                <p><i class="fa fa-map-marker-alt me-3"></i>{{ block.settings.address }}</p>
+              {% endif %}
+              {% if block.settings.phone != blank %}
+                <p><i class="fa fa-phone-alt me-3"></i>{{ block.settings.phone }}</p>
+              {% endif %}
+              {% if block.settings.email != blank %}
+                <p><i class="fa fa-envelope me-3"></i>{{ block.settings.email }}</p>
+              {% endif %}
+              <div class="d-flex pt-2">
+                {% if block.settings.twitter_link != blank %}
+                  <a class="btn btn-square btn-outline-primary me-1" href="{{ block.settings.twitter_link }}"
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                {% endif %}
+                {% if block.settings.facebook_link != blank %}
+                  <a class="btn btn-square btn-outline-primary me-1" href="{{ block.settings.facebook_link }}"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                {% endif %}
+                {% if block.settings.instagram_link != blank %}
+                  <a class="btn btn-square btn-outline-primary me-1" href="{{ block.settings.instagram_link }}"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                {% endif %}
+                {% if block.settings.linkedin_link != blank %}
+                  <a class="btn btn-square btn-outline-primary me-1" href="{{ block.settings.linkedin_link }}"
+                    ><i
+                      class="fab fa-linkedin-in"
+                    ></i
+                  ></a>
+                {% endif %}
+              </div>
+            </div>
+          {%- when 'our_product' -%}
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+              {% if block.settings.section_title != blank %}
+                <h5 class="mb-4">{{ block.settings.section_title }}</h5>
+              {% endif %}
+              {% if block.settings.product_list != blank %}
+                {% for product in block.settings.product_list %}
+                  <a class="btn btn-link" href="{{ product.url }}">{{ product.title }}</a>
+                {% endfor %}
+              {% endif %}
+            </div>
+          {%- when 'populat_link' -%}
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+              {% if block.settings.section_title != blank %}
+                <h5 class="mb-4">{{ block.settings.section_title }}</h5>
+              {% endif %}
+              {% if block.settings.popular_link != blank %}
+                {% assign link_list = block.settings.popular_link %}
+                {% if link_list %}
+                  {% for link in link_list.links %}
+                    <a class="btn btn-link" href="{{ link.url }}">{{ link.title }}</a>
+                  {% endfor %}
+                {% endif %}
+              {% endif %}
+            </div>
+        {% endcase %}
+      {% endfor %}
     </div>
   </div>
+
   <div class="container wow fadeIn" data-wow-delay="0.1s">
     <div class="copyright">
       <div class="row">
@@ -70,113 +107,111 @@
 
 {% schema %}
 {
-  "name": "t:sections.footer.name",
+  "name": "Footer Section",
   "blocks": [
     {
-      "type": "link_list",
-      "name": "t:sections.footer.blocks.link_list.name",
+      "type": "brand_info",
+      "name": "Brand Info",
       "settings": [
         {
-          "type": "inline_richtext",
+          "type": "text",
           "id": "heading",
-          "default": "Quick links",
-          "label": "t:sections.footer.blocks.link_list.settings.heading.label"
+          "default": "Custom eshop",
+          "label": "Site title"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "tagline",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, erat non malesuada consequat, nibh erat tempus risus, vitae porttitor purus nisl vitae purus.",
+          "label": "Tagline",
+          "info": "Tagline"
+        }
+      ]
+    },
+    {
+      "type": "contact_info",
+      "name": "Contact Info",
+      "settings": [
+        {
+          "type": "text",
+          "id": "section_title",
+          "default": "Get In Touch",
+          "label": "Contact info"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "address",
+          "default": "123 Street, New York, USA",
+          "label": "Address",
+          "info": "Contact address"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "default": "+012 345 67890",
+          "label": "Telephone",
+          "info": "Telephone number"
+        },
+        {
+          "type": "text",
+          "id": "twitter_link",
+          "label": "Twitter",
+          "info": "Twitter url"
+        },
+        {
+          "type": "text",
+          "id": "facebook_link",
+          "label": "Facebook",
+          "info": "Facebook url"
+        },
+        {
+          "type": "text",
+          "id": "instagram_link",
+          "label": "Instagram",
+          "info": "Instagram url"
+        },
+        {
+          "type": "text",
+          "id": "linkedin_link",
+          "label": "LinkedIn",
+          "info": "LinkedIn url"
+        }
+      ]
+    },
+    {
+      "type": "our_product",
+      "name": "Our Product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "section_title",
+          "default": "Our products",
+          "label": "Our products"
+        },
+        {
+          "type": "product_list",
+          "id": "product_list",
+          "label": "Products",
+          "limit": 5
+        }
+      ]
+    },
+    {
+      "type": "populat_link",
+      "name": "Popular Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "section_title",
+          "default": "Popular Link",
+          "label": "Popular Link"
         },
         {
           "type": "link_list",
-          "id": "menu",
-          "default": "footer",
-          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
-          "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+          "id": "popular_link",
+          "label": "Popular links"
         }
       ]
-    },
-    {
-      "type": "brand_information",
-      "name": "t:sections.footer.blocks.brand_information.name",
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "t:sections.footer.blocks.brand_information.settings.paragraph.content"
-        },
-        {
-          "type": "header",
-          "content": "t:sections.footer.blocks.brand_information.settings.header__1.content"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_social",
-          "default": true,
-          "label": "t:sections.footer.blocks.brand_information.settings.show_social.label",
-          "info": "t:sections.footer.blocks.brand_information.settings.show_social.info"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "name": "t:sections.footer.blocks.text.name",
-      "settings": [
-        {
-          "type": "inline_richtext",
-          "id": "heading",
-          "default": "Heading",
-          "label": "t:sections.footer.blocks.text.settings.heading.label"
-        },
-        {
-          "type": "richtext",
-          "id": "subtext",
-          "default": "<p>Share contact information, store details, and brand content with your customers.</p>",
-          "label": "t:sections.footer.blocks.text.settings.subtext.label"
-        }
-      ]
-    },
-    {
-      "type": "image",
-      "name": "Image",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "range",
-          "id": "image_width",
-          "min": 50,
-          "max": 550,
-          "step": 5,
-          "unit": "px",
-          "label": "Image width",
-          "default": 100
-        },
-        {
-          "type": "select",
-          "id": "alignment",
-          "label": "Image alignment on large screen",
-          "options": [
-            {
-              "value": "",
-              "label": "Left"
-            },
-            {
-              "value": "center",
-              "label": "Center"
-            },
-            {
-              "value": "right",
-              "label": "Right"
-            }
-          ],
-          "default": "center"
-        }
-      ]
-    }
-  ],
-  "settings": [
-    {
-      "type": "header",
-      "content": "t:sections.footer.settings.header__1.content",
-      "info": "t:sections.footer.settings.header__1.info"
     }
   ]
 }
