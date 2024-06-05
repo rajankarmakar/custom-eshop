@@ -36,12 +36,20 @@
               "product-five"
             ]
           }
+        },
+        "populat_link_8PT3Dh": {
+          "type": "populat_link",
+          "settings": {
+            "section_title": "Popular Link",
+            "popular_link": "footer"
+          }
         }
       },
       "block_order": [
         "brand_info_qwnX4D",
         "contact_info_mwkVTn",
-        "our_product_QpDL6w"
+        "our_product_QpDL6w",
+        "populat_link_8PT3Dh"
       ],
       "settings": {
       }
