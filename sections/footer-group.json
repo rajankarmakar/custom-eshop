@@ -23,11 +23,25 @@
             "instagram_link": "https:.\/\/instagram.com\/custom-eshop",
             "linkedin_link": "https:.\/\/linkedin.com\/custom-eshop"
           }
+        },
+        "our_product_QpDL6w": {
+          "type": "our_product",
+          "settings": {
+            "section_title": "Our products",
+            "product_list": [
+              "product-one",
+              "product-two",
+              "product-three",
+              "product-four",
+              "product-five"
+            ]
+          }
         }
       },
       "block_order": [
         "brand_info_qwnX4D",
-        "contact_info_mwkVTn"
+        "contact_info_mwkVTn",
+        "our_product_QpDL6w"
       ],
       "settings": {
       }
