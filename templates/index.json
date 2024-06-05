@@ -32,12 +32,23 @@
             "button_label": "See more",
             "button_link": "#"
           }
+        },
+        "slide_cUapFb": {
+          "type": "Slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/pexels-katieburandt-1212693.jpg",
+            "title": "Example title",
+            "description": "Example description",
+            "button_label": "See more",
+            "button_link": ""
+          }
         }
       },
       "block_order": [
         "slide_gUJCRA",
         "slide_ggpg7J",
-        "slide_xxddXa"
+        "slide_xxddXa",
+        "slide_cUapFb"
       ],
       "settings": {
         "show_arrow": true
