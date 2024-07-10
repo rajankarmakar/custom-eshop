@@ -33,7 +33,7 @@
               </div>
               <div class="info-category">
                 <h3>
-                  <a href="{{block.settings.product.url }}">{{ block.settings.title }}</a>
+                  <a href="{{block.settings.product.url }}">{{ block.settings.product.title }}</a>
                 </h3>
                 <p>Price: ${{ block.settings.product.price | money_without_currency }}</p>
                 <button id="add-to-cart" data-product_id="{{ block.settings.product.id }}" data-qty="1">
@@ -96,7 +96,7 @@
 
     addToCartBtn.addEventListener('click', function (event) {
       event.preventDefault();
-
+      console.log(window.Shopify.routes.root, '>>>>>');
       let productId = +addToCartBtn.dataset.product_id;
       let quantity = 1;
       console.log('productId', productId);
@@ -109,11 +109,14 @@
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Accept: 'application/json',
         },
         body: JSON.stringify({
-          id: productId,
-          quantity: quantity,
+          items: [
+            {
+              id: productId,
+              quantity: quantity,
+            },
+          ],
         }),
       })
         .then((response) => {
@@ -149,11 +152,6 @@
       "type": "product_list",
       "name": "Product Item",
       "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Product title"
-        },
         {
           "type": "product",
           "id": "product",

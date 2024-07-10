@@ -111,18 +111,28 @@
       },
       "block_order": [],
       "settings": {
-        {
           "type": "product_list",
           "id": "product_list",
           "label": "Products",
           "limit": 12
-        }
       }
-    }
+    },
+    "blog-grid": {
+      "type": "blog-grid",
+      "blocks": {
+      },
+      "block_order": [],
+      "settings": {
+          "type": "article",
+          "id": "article",
+          "label": "Article"
+      }
+    },
   },
   "order": [
     "image-slider",
     "collection-grid",
-    "product-grid"
+    "product-grid",
+    "blog-grid"
   ]
 }
