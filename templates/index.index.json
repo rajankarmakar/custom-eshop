@@ -113,10 +113,22 @@
         "section_title": "Collection list",
         "section_description": "LOREM IPSUM DOLOR SIT AMET CONSECTETUR"
       }
+    },
+    "product-grid": {
+      "type": "product-grid",
+      "settings": {
+      }
+    },
+    "blog-grid": {
+      "type": "blog-grid",
+      "settings": {
+      }
     }
   },
   "order": [
     "image-slider",
-    "collection-grid"
+    "collection-grid",
+    "product-grid",
+    "blog-grid"
   ]
 }
