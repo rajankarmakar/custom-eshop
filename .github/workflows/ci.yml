@@ -8,7 +8,7 @@ jobs:
     env:
       ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Lighthouse
         uses: shopify/lighthouse-ci-action@v1
         with:
