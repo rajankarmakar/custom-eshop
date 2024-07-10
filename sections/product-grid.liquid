@@ -36,7 +36,9 @@
                   <a href="{{block.settings.product.url }}">{{ block.settings.title }}</a>
                 </h3>
                 <p>Price: ${{ block.settings.product.price | money_without_currency }}</p>
-                <button>Add to cart</button>
+                <button id="add-to-cart" data-product_id="{{ block.settings.product.id }}" data-qty="1">
+                  Add to cart
+                </button>
                 <a href="{{block.settings.product.url }}" style="display: block; padding-top:1rem;">See details</a>
               </div>
             </div>
@@ -87,6 +89,49 @@
     color: inherit;
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let addToCartBtn = document.getElementById('add-to-cart');
+
+    addToCartBtn.addEventListener('click', function (event) {
+      event.preventDefault();
+
+      let productId = +addToCartBtn.dataset.product_id;
+      let quantity = 1;
+      console.log('productId', productId);
+      console.log('quantity', quantity);
+      addToCart(productId, quantity);
+    });
+
+    function addToCart(productId, quantity) {
+      fetch(window.Shopify.routes.root + 'cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          id: productId,
+          quantity: quantity,
+        }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log('Product added to cart:', data);
+          // Update the cart UI or provide feedback to the user
+        })
+        .catch((error) => {
+          console.error('There was a problem with the fetch operation:', error);
+        });
+    }
+  });
+</script>
 
 {% schema %}
 {
