@@ -1,0 +1,122 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "image-slider": {
+      "type": "image-slider",
+      "blocks": {
+        "slide_gUJCRA": {
+          "type": "Slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/istockphoto-1431021822-1024x1024.jpg",
+            "title": "Example title",
+            "description": "Example description",
+            "button_label": "See more",
+            "button_link": "#"
+          }
+        },
+        "slide_ggpg7J": {
+          "type": "Slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/pexels-katieburandt-1212693.jpg",
+            "title": "Example title 2",
+            "description": "Example description 2",
+            "button_label": "See more",
+            "button_link": "#"
+          }
+        },
+        "slide_xxddXa": {
+          "type": "Slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/kal-visuals-aK4iPNYipnU-unsplash.jpg",
+            "title": "Example title 3",
+            "description": "Example description 3",
+            "button_label": "See more",
+            "button_link": "#"
+          }
+        },
+        "slide_cUapFb": {
+          "type": "Slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/pexels-katieburandt-1212693.jpg",
+            "title": "Example title",
+            "description": "Example description",
+            "button_label": "See more",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_gUJCRA",
+        "slide_ggpg7J",
+        "slide_xxddXa",
+        "slide_cUapFb"
+      ],
+      "settings": {
+        "show_arrow": true
+      }
+    },
+    "collection-grid": {
+      "type": "collection-grid",
+      "blocks": {
+        "collection_item_A4A9FD": {
+          "type": "collection_item",
+          "settings": {
+            "title": "Phone",
+            "collection": "mobile"
+          }
+        },
+        "collection_item_HWLhwa": {
+          "type": "collection_item",
+          "settings": {
+            "title": "Headphone",
+            "collection": "headphone"
+          }
+        },
+        "collection_item_yB79Hb": {
+          "type": "collection_item",
+          "settings": {
+            "title": "Laptop",
+            "collection": "laptop"
+          }
+        },
+        "collection_item_8hN9WA": {
+          "type": "collection_item",
+          "settings": {
+            "title": "Phone cover",
+            "collection": "phone-cover"
+          }
+        },
+        "collection_item_NFhVKp": {
+          "type": "collection_item",
+          "settings": {
+            "title": "Tablet",
+            "collection": "tablet"
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_A4A9FD",
+        "collection_item_HWLhwa",
+        "collection_item_yB79Hb",
+        "collection_item_8hN9WA",
+        "collection_item_NFhVKp"
+      ],
+      "settings": {
+        "section_title": "Collection list",
+        "section_description": "LOREM IPSUM DOLOR SIT AMET CONSECTETUR"
+      }
+    }
+  },
+  "order": [
+    "image-slider",
+    "collection-grid"
+  ]
+}
