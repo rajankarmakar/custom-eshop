@@ -1,0 +1,121 @@
+<div class="featured-category">
+  <div class="container">
+    <div class="tab-content text-center">
+      <div class="title-product pt-4">
+        {% if section.settings.section_title != blank %}
+          <h2 class="text-center">{{ section.settings.section_title }}</h2>
+        {% endif %}
+        <div class="featured">
+          {% for block in section.blocks %}
+            <div class="content-category">
+              <div class="content-img">
+                <a href="#">
+                  {% if block.settings.product.media != blank %}
+                    {% for mediaobj in block.settings.product.media %}
+                      <img
+                        src="{{ mediaobj.src | img_url }}"
+                        alt="{{ block.settings.product.title }}"
+                        class="img-fluid"
+                        width="200"
+                        height="200"
+                      >
+                    {% endfor %}
+                  {% else %}
+                    <img
+                      src="{{ block.settings.product.products.first.featured_image.src | img_url }}"
+                      alt="{{ block.settings.product.title }}"
+                      class="img-fluid"
+                      width="200"
+                      height="200"
+                    >
+                  {% endif %}
+                </a>
+              </div>
+              <div class="info-category">
+                <h3>
+                  <a href="{{block.settings.product.url }}">{{ block.settings.title }}</a>
+                </h3>
+                <p>Price: ${{ block.settings.product.price | money_without_currency }}</p>
+                <button>Add to cart</button>
+                <a href="{{block.settings.product.url }}" style="display: block; padding-top:1rem;">See details</a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .featured {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .content-category {
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .content-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .info-category {
+    margin-top: auto;
+    text-align: center;
+  }
+
+  .info-category h3 a {
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Product List",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section title",
+      "default": "Product list"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_list",
+      "name": "Product Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Product title"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
