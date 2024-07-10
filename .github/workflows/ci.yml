@@ -1,5 +1,6 @@
 name: CI
 on: [push]
+
 jobs:
   lhci:
     name: Lighthouse
@@ -17,6 +18,7 @@ jobs:
           collection_handle: all
           lhci_github_app_token: ${{ secrets.LHCI_GITHUB_TOKEN }}
           pull_theme: ${{ secrets.SHOP_PULL_THEME }}
+
   theme-check:
     name: Theme Check
     runs-on: ubuntu-latest
